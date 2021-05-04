@@ -5,7 +5,7 @@ const Post = (props) => {
 
     const [url, setUrl] = useState('');
     useEffect(() => {
-        fetch('https://source.unsplash.com/500x500/?architecture,cars').then((Response) => {
+        fetch('https://picsum.photos/500').then((Response) => {
             console.log(Response.url);
             setUrl(Response.url);
         })
