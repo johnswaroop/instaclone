@@ -1,5 +1,10 @@
-$inner: 0 1.5rem 0;
+$inner: 0 1rem 0;
+$base: #e8ecf2;
 
+body {
+    margin: 0;
+    padding: 0;
+}
 .container {
     display: flex;
     width: 100%;
@@ -13,41 +18,50 @@ $inner: 0 1.5rem 0;
     flex-direction: column;
     width: 360px;
     height: 780px;
-    background-color: #e8ecf2;
+    background-color: $base;
     border-radius: 40px;
     box-shadow: 0px 0px 0px 11px #1f1f1f, 0px 0px 0px 13px #191919;
     overflow: hidden;
+    position: relative;
 }
 
 .nav {
     display: flex;
 
-    height: 5rem;
-
+    min-height: 3rem;
+    max-width: 100%;
+    margin: 0.5rem 0.25rem;
+    overflow: hidden;
     justify-content: space-between;
     align-items: center;
     padding: $inner;
-    margin-top: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.712);
+
+    border-radius: 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
 }
 
 #camera,
 #message {
-    height: 1.5rem;
+    height: 1.25rem;
     object-fit: contain;
 }
 
 #logo {
     object-fit: contain;
-    height: 2.7rem;
+    height: 2.5rem;
 }
 
 .story-container {
     display: flex;
 
-    align-items: center;
-    height: 6rem;
-
-    //background-color: aquamarine;
+    min-height: 5.5rem;
+    align-content: center;
+    margin-top: 5rem;
+    // background-color: aquamarine;
 
     overflow-x: scroll;
     scrollbar-width: none;
@@ -59,21 +73,165 @@ $inner: 0 1.5rem 0;
 
 .story-orb {
     display: flex;
-    min-width: 4rem;
-    height: 4rem;
+    min-width: 4.25rem;
+    height: 4.25rem;
+    box-shadow: 3px 3px 10px rgb(182, 182, 182), -3px -3px 10px rgb(255, 255, 255);
 
     justify-content: center;
     align-items: center;
     border-radius: 100%;
-    border: 1px solid springgreen;
 
+    background: linear-gradient(orange, rgb(221, 47, 114));
     overflow: hidden;
-    margin: 0 1rem 0;
+    margin: 0 0.75rem 0;
 
     img {
-        width: 3.5rem;
-        height: 3.5rem;
+        width: 3.75rem;
+        height: 3.75rem;
         object-fit: cover;
         border-radius: 100%;
+        background-color: $base;
+        border: 2px solid $base;
+    }
+}
+
+.post-container {
+    display: flex;
+    background: white;
+    height: 30rem;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.user-info {
+    display: flex;
+
+    align-items: center;
+    padding: $inner;
+    padding-top: 1rem;
+    .dp {
+        border-radius: 100%;
+        overflow: hidden;
+        height: 3rem;
+        width: 3rem;
+    }
+
+    span {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.user-info-text {
+    padding: $inner;
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+        font-family: "Roboto", sans-serif;
+        font-weight: 600;
+        font-size: 1rem;
+        margin: 0;
+        justify-content: start;
+        margin-bottom: 0.35rem;
+    }
+
+    h3 {
+        font-family: "Roboto", sans-serif;
+        font-weight: 300;
+        font-size: 0.75rem;
+        color: rgb(121, 120, 120);
+        margin: 0;
+    }
+}
+
+.image-container {
+    display: flex;
+    background-color: $base;
+    height: 70%;
+    max-width: 100%;
+    margin: $inner;
+    margin-top: 1rem;
+
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0px 8px 20px rgb(100, 100, 100);
+
+    img {
+        object-fit: cover;
+        width: 100%;
+    }
+}
+
+.post-info {
+    display: flex;
+    height: 2rem;
+    max-width: 100%;
+    margin: 0 2rem 0;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    align-items: center;
+}
+
+.likes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2rem;
+    .likes-img {
+        height: 1rem;
+        object-fit: contain;
+    }
+
+    p {
+        margin-left: 0.5rem;
+        font-family: "Roboto", sans-serif;
+        color: rgb(78, 78, 78);
+        font-size: 0.9rem;
+    }
+}
+
+.comments {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .comments-img {
+        height: 1rem;
+        object-fit: contain;
+    }
+
+    p {
+        margin-left: 0.5rem;
+        font-family: "Roboto", sans-serif;
+        color: rgb(78, 78, 78);
+        font-size: 0.9rem;
+    }
+}
+
+.y-scroll {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.y-scroll::-webkit-scrollbar {
+    width: 0 !important;
+}
+
+@media only screen and (max-width: 600px) {
+    .phone {
+        width: 99vw;
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+        height: 100vh;
+    }
+    .image-container {
+        height: 80%;
     }
 }

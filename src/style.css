@@ -1,3 +1,8 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -27,26 +32,35 @@
   -webkit-box-shadow: 0px 0px 0px 11px #1f1f1f, 0px 0px 0px 13px #191919;
           box-shadow: 0px 0px 0px 11px #1f1f1f, 0px 0px 0px 13px #191919;
   overflow: hidden;
+  position: relative;
 }
 
 .nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 5rem;
+  min-height: 3rem;
+  max-width: 100%;
+  margin: 0.5rem 0.25rem;
+  overflow: hidden;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 0 1.5rem 0;
-  margin-top: 1.5rem;
+  padding: 0 1rem 0;
+  background-color: rgba(255, 255, 255, 0.712);
+  border-radius: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 #camera,
 #message {
-  height: 1.5rem;
+  height: 1.25rem;
   -o-object-fit: contain;
      object-fit: contain;
 }
@@ -54,17 +68,17 @@
 #logo {
   -o-object-fit: contain;
      object-fit: contain;
-  height: 2.7rem;
+  height: 2.5rem;
 }
 
 .story-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 6rem;
+  min-height: 5.5rem;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  margin-top: 5rem;
   overflow-x: scroll;
   scrollbar-width: none;
 }
@@ -77,8 +91,10 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  min-width: 4rem;
-  height: 4rem;
+  min-width: 4.25rem;
+  height: 4.25rem;
+  -webkit-box-shadow: 3px 3px 10px #b6b6b6, -3px -3px 10px white;
+          box-shadow: 3px 3px 10px #b6b6b6, -3px -3px 10px white;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -86,16 +102,211 @@
       -ms-flex-align: center;
           align-items: center;
   border-radius: 100%;
-  border: 1px solid springgreen;
+  background: -webkit-gradient(linear, left top, left bottom, from(orange), to(#dd2f72));
+  background: linear-gradient(orange, #dd2f72);
   overflow: hidden;
-  margin: 0 1rem 0;
+  margin: 0 0.75rem 0;
 }
 
 .story-orb img {
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 3.75rem;
+  height: 3.75rem;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 100%;
+  background-color: #e8ecf2;
+  border: 2px solid #e8ecf2;
+}
+
+.post-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: white;
+  height: 30rem;
+  border-radius: 20px;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.user-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 1rem 0;
+  padding-top: 1rem;
+}
+
+.user-info .dp {
+  border-radius: 100%;
+  overflow: hidden;
+  height: 3rem;
+  width: 3rem;
+}
+
+.user-info span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.user-info-text {
+  padding: 0 1rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.user-info-text h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 0;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  margin-bottom: 0.35rem;
+}
+
+.user-info-text h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 0.75rem;
+  color: #797878;
+  margin: 0;
+}
+
+.image-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #e8ecf2;
+  height: 70%;
+  max-width: 100%;
+  margin: 0 1rem 0;
+  margin-top: 1rem;
+  border-radius: 25px;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 8px 20px #646464;
+          box-shadow: 0px 8px 20px #646464;
+}
+
+.image-container img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+}
+
+.post-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 2rem;
+  max-width: 100%;
+  margin: 0 2rem 0;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.likes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 2rem;
+}
+
+.likes .likes-img {
+  height: 1rem;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.likes p {
+  margin-left: 0.5rem;
+  font-family: "Roboto", sans-serif;
+  color: #4e4e4e;
+  font-size: 0.9rem;
+}
+
+.comments {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.comments .comments-img {
+  height: 1rem;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.comments p {
+  margin-left: 0.5rem;
+  font-family: "Roboto", sans-serif;
+  color: #4e4e4e;
+  font-size: 0.9rem;
+}
+
+.y-scroll {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.y-scroll::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .phone {
+    width: 99vw;
+    border: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    border-radius: 0;
+    height: 100vh;
+  }
+  .image-container {
+    height: 80%;
+  }
 }
 /*# sourceMappingURL=style.css.map */
