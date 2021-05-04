@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from 'react'
 import useFetchImage from './hooks/useFetchImage'
+import useFetchJson from './hooks/useFetchJson'
 
 
 
@@ -8,35 +9,38 @@ const Post = (props) => {
 
 
     let imageUrl = useFetchImage(500);
-    let profileUrl = useFetchImage(400);
-    let [profile, setProfile] = useState('');
+    let user = useFetchJson('https://randomuser.me/api/');
+    console.log(user.name.first);
+    const [likeClass, setLikeClass] = useState('like-heart');
 
+    const animate = 'slide-in-fwd-center';
 
-    useEffect(() => {
-        fetch('https://randomuser.me/api/').then((Response) =>
-            Response.json()).then((data) => {
-                console.log(data.results[0].name.first);
-                setProfile(data.results[0].name.first);
-            })
-    }, []);
+    function liker() {
 
-
+        console.log('liked');
+        setLikeClass((likeClass) => {
+            return `${likeClass} ${animate}`;
+        })
+    }
 
 
     return (
         <div className='post-container'>
 
             <div className='user-info'>
-                <img className='dp' src={profileUrl} alt="" />
+                <img className='dp' src={user.picture.thumbnail} alt="" />
                 <span className='user-info-text'>
-                    <h1>{profile}</h1>
+                    <h1>{user.name.first}</h1>
                     <h3>3 hours ago</h3>
                 </span>
                 <img src="" alt="" />
             </div>
 
-            <div className='image-container'>
+            <div className='image-container' onDoubleClick={liker}>
+
                 <img src={imageUrl} alt="" />
+
+                <img className={likeClass} src="/images/like.png" alt="" />
 
 
             </div>

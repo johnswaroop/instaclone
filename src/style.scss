@@ -155,7 +155,7 @@ body {
     max-width: 100%;
     margin: $inner;
     margin-top: 1rem;
-
+    position: relative;
     border-radius: 25px;
     overflow: hidden;
     box-shadow: 0px 8px 20px rgb(100, 100, 100);
@@ -234,4 +234,11 @@ body {
     .image-container {
         height: 80%;
     }
+}
+
+.like-heart {
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+    object-fit: contain;
 }

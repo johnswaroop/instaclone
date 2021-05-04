@@ -1,5 +1,6 @@
 import Phone from './Phone'
 import './style.css'
+import './animate.css'
 
 
 
