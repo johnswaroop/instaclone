@@ -30,14 +30,14 @@ body {
 
     min-height: 3rem;
     max-width: 100%;
-    margin: 0.5rem 0.25rem;
+    margin: 0rem 0rem;
     overflow: hidden;
     justify-content: space-between;
     align-items: center;
-    padding: $inner;
+    padding: 0 1.5rem 0;
     background-color: rgba(255, 255, 255, 0.712);
 
-    border-radius: 40px;
+    // border-radius: 40px;
     position: absolute;
     top: 0;
     left: 0;
