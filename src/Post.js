@@ -1,15 +1,24 @@
 
 import { useEffect, useState } from 'react'
+import useFetchImage from './hooks/useFetchImage'
+
+
 
 const Post = (props) => {
 
-    const [url, setUrl] = useState('');
+
+    let imageUrl = useFetchImage(500);
+    let profileUrl = useFetchImage(400);
+    let [profile, setProfile] = useState('');
+
+
     useEffect(() => {
-        fetch('https://picsum.photos/500').then((Response) => {
-            console.log(Response.url);
-            setUrl(Response.url);
-        })
-    }, [])
+        fetch('https://randomuser.me/api/').then((Response) =>
+            Response.json()).then((data) => {
+                console.log(data.results[0].name.first);
+                setProfile(data.results[0].name.first);
+            })
+    }, []);
 
 
 
@@ -18,16 +27,16 @@ const Post = (props) => {
         <div className='post-container'>
 
             <div className='user-info'>
-                <img className='dp' src="https://picsum.photos/60" alt="" />
+                <img className='dp' src={profileUrl} alt="" />
                 <span className='user-info-text'>
-                    <h1>Doug wilson</h1>
+                    <h1>{profile}</h1>
                     <h3>3 hours ago</h3>
                 </span>
                 <img src="" alt="" />
             </div>
 
             <div className='image-container'>
-                <img src={url} alt="" />
+                <img src={imageUrl} alt="" />
 
 
             </div>
