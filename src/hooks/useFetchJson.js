@@ -8,7 +8,7 @@ const useFetchJson = (url) => {
     const [data, setdata] = useState(
         {
             name: { first: "" },
-            picture: { thumbnail: "" }
+            picture: { thumbnail: "/images/white.png" }
         }
 
     );

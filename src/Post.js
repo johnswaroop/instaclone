@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import useFetchImage from './hooks/useFetchImage'
 import useFetchJson from './hooks/useFetchJson'
+import PostInfo from './PostInfo'
 
 
 
@@ -10,18 +11,33 @@ const Post = (props) => {
 
     let imageUrl = useFetchImage(500);
     let user = useFetchJson('https://randomuser.me/api/');
-    console.log(user.name.first);
     const [likeClass, setLikeClass] = useState('like-heart');
+    console.log(user.name.first);
 
-    const animate = 'slide-in-fwd-center';
+    const [stats, setStats] = useState({
+        likes: Math.floor(Math.random() * 300) + 1,
+        comments: Math.floor(Math.random() * 200) + 1,
+        time: Math.floor(Math.random() * 10) + 1,
+    })
+
+
+
+
+
+
+
 
     function liker() {
-
+        const animate = 'slide-in-fwd-center';
         console.log('liked');
         setLikeClass((likeClass) => {
             return `${likeClass} ${animate}`;
         })
     }
+
+    useEffect(() => {
+
+    }, [])
 
 
     return (
@@ -31,7 +47,7 @@ const Post = (props) => {
                 <img className='dp' src={user.picture.thumbnail} alt="" />
                 <span className='user-info-text'>
                     <h1>{user.name.first}</h1>
-                    <h3>3 hours ago</h3>
+                    <h3>{`${stats.time} hours ago`}</h3>
                 </span>
                 <img src="" alt="" />
             </div>
@@ -45,18 +61,27 @@ const Post = (props) => {
 
             </div>
 
-            <div className='post-info'>
-                <div className='likes'>
-                    <img className='likes-img' src="/images/heart.png" alt="" />
-                    <p className='likes-count'>1000</p>
-                </div>
+            <PostInfo liked={
+                () => {
+                    if (likeClass === 'like-heart') {
+                        return false
+                    }
+                    else {
+                        return true
+                    }
+                }
+            }
+                likes={stats.likes}
+                comments={stats.comments}
+                delike={
+                    () => {
+                        setLikeClass('like-heart');
+                    }
+                }
 
-                <div className='comments'>
-                    <img className='comments-img' src="/images/comment.png" alt="" />
-                    <p className='comments-count'>2000</p>
-                </div>
+            />
 
-            </div>
+
 
         </div>
     )
