@@ -1,7 +1,48 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import StoryOrb from './StoryOrb'
+import FullStory from './FullStory'
+import StoryLog from './hooks/StoryLog';
+
 
 const Story = (props) => {
+
+    let updateStoryBook;
+    let storybook;
+
+
+
+
+    updateStoryBook = StoryLog();
+
+    const [fullScreen, ToggleFullScreen] = useState(false);
+    const [fullScreenData, setfullscreenData] = useState({});
+
+
+
+    const updateLog = (log) => {
+
+
+        storybook = updateStoryBook(log);
+
+    }
+
+    const storyTap = (src) => {
+
+
+        setfullscreenData((obj) => {
+
+            obj.storybook = storybook;
+            obj.src = src;
+
+            return ({ ...obj })
+        })
+        ToggleFullScreen(true);
+
+
+    }
+
+
+
 
 
 
@@ -12,13 +53,18 @@ const Story = (props) => {
         <div className='story-container'>
 
 
-            <StoryOrb />
-            <StoryOrb />
-            <StoryOrb />
-            <StoryOrb />
-            <StoryOrb />
-            <StoryOrb />
-            <StoryOrb />
+            <StoryOrb updateLog={updateLog} onClick={storyTap} />
+            <StoryOrb updateLog={updateLog} onClick={storyTap} />
+            <StoryOrb updateLog={updateLog} onClick={storyTap} />
+            <StoryOrb updateLog={updateLog} onClick={storyTap} />
+            <StoryOrb updateLog={updateLog} onClick={storyTap} />
+            <StoryOrb updateLog={updateLog} onClick={storyTap} />
+            <StoryOrb updateLog={updateLog} onClick={storyTap} />
+
+            {fullScreen ? <FullStory storybook={fullScreenData.storybook} src={fullScreenData.src} /> : null}
+
+
+
 
         </div>
     )
