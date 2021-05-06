@@ -61,7 +61,7 @@ const Story = (props) => {
             <StoryOrb updateLog={updateLog} onClick={storyTap} />
             <StoryOrb updateLog={updateLog} onClick={storyTap} />
 
-            {fullScreen ? <FullStory storybook={fullScreenData.storybook} src={fullScreenData.src} /> : null}
+            {fullScreen ? <FullStory storybook={fullScreenData.storybook} src={fullScreenData.src} toggle={ToggleFullScreen} /> : null}
 
 
 
