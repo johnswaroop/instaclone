@@ -19,6 +19,9 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#e8edff));
+  background: linear-gradient(to bottom, #ffffff, #e8edff);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .phone {
@@ -33,8 +36,8 @@ body {
   height: 780px;
   background-color: #e8ecf2;
   border-radius: 40px;
-  -webkit-box-shadow: 0px 0px 0px 11px #1f1f1f, 0px 0px 0px 13px #191919;
-          box-shadow: 0px 0px 0px 11px #1f1f1f, 0px 0px 0px 13px #191919;
+  -webkit-box-shadow: 0px 0px 0px 11px #1f1f1f, 0px 0px 0px 13px #191919, 1px 50px 100px 3px #cdd7ff;
+          box-shadow: 0px 0px 0px 11px #1f1f1f, 0px 0px 0px 13px #191919, 1px 50px 100px 3px #cdd7ff;
   overflow: hidden;
   position: relative;
 }
