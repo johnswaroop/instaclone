@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import useFetchImage from './hooks/useFetchImage'
 import useFetchJson from './hooks/useFetchJson'
 import PostInfo from './PostInfo'
+import { motion } from "framer-motion";
 
 
 
@@ -39,53 +40,60 @@ const Post = (props) => {
 
     }, [])
 
-
-    return (
-        <div className='post-container'>
-
-            <div className='user-info'>
-                <img className='dp' src={user.picture.thumbnail} alt="" />
-                <span className='user-info-text'>
-                    <h1>{user.name.first}</h1>
-                    <h3>{`${stats.time} hours ago`}</h3>
-                </span>
-                <img src="" alt="" />
-            </div>
-
-            <div className='image-container' onDoubleClick={liker}>
-
-                <img src={imageUrl} alt="" />
-
-                <img className={likeClass} src="/images/like.png" alt="" />
+    if (imageUrl != '/images/white.png') {
 
 
-            </div>
+        return (
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, }}
+                className='post-container'>
 
-            <PostInfo liked={
-                () => {
-                    if (likeClass === 'like-heart') {
-                        return false
-                    }
-                    else {
-                        return true
-                    }
-                }
-            }
-                likes={stats.likes}
-                comments={stats.comments}
-                delike={
+                <div className='user-info'>
+                    <img className='dp' src={user.picture.thumbnail} alt="" />
+                    <span className='user-info-text'>
+                        <h1>{user.name.first}</h1>
+                        <h3>{`${stats.time} hours ago`}</h3>
+                    </span>
+                    <img src="" alt="" />
+                </div>
+
+                <div className='image-container' onDoubleClick={liker}>
+
+                    <img src={imageUrl} alt="" />
+
+                    <img className={likeClass} src="/images/like.png" alt="" />
+
+
+                </div>
+
+                <PostInfo liked={
                     () => {
-                        setLikeClass('like-heart');
+                        if (likeClass === 'like-heart') {
+                            return false
+                        }
+                        else {
+                            return true
+                        }
                     }
                 }
+                    likes={stats.likes}
+                    comments={stats.comments}
+                    delike={
+                        () => {
+                            setLikeClass('like-heart');
+                        }
+                    }
 
-            />
+                />
 
 
 
-        </div>
-    )
+            </motion.div>
+        )
 
+    }
+    else {
+        return null
+    }
 }
 
 export default Post;

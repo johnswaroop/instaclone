@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import useFetchImage from './hooks/useFetchImage'
 import StoryLog from './hooks/StoryLog';
+import { motion } from "framer-motion";
 
 
 const StoryOrb = (props) => {
@@ -17,9 +18,12 @@ const StoryOrb = (props) => {
         props.updateLog(storyUrl);
 
         return (
-            <div className='story-orb' onClick={clickHandle}>
+            <motion.div initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1 }}
+                className='story-orb' onClick={clickHandle}>
                 <img src={storyUrl} alt="" />
-            </div>
+            </motion.div>
         )
 
 

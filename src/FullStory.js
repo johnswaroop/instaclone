@@ -53,7 +53,7 @@ const FullStory = (props) => {
 
 
     return (
-        <div className='story-fullscreen'  >
+        <motion.div className='story-fullscreen' initial={{ opacity: 0, scale: 0.7 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }}  >
             <div className="progress-body">
 
                 <motion.div initial={`${currentIndex * 0}%`} animate={{ width: `${currentIndex * 100}%` }} transition={{ type: "spring", duration: 3 }}
@@ -67,7 +67,7 @@ const FullStory = (props) => {
             }}>
                 <h1>X</h1>
             </div>
-        </div >
+        </motion.div >
     )
 }
 
