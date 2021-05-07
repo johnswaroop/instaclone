@@ -44,7 +44,7 @@ const Post = (props) => {
 
 
         return (
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, }}
+            <motion.div initial={{ opacity: 0, scale: 0.70 }} animate={{ opacity: 1, scale: 1.00 }} transition={{ duration: 0.7 }}
                 className='post-container'>
 
                 <div className='user-info'>

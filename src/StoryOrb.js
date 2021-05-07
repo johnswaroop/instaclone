@@ -18,8 +18,8 @@ const StoryOrb = (props) => {
         props.updateLog(storyUrl);
 
         return (
-            <motion.div initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
+            <motion.div initial={{ opacity: 0, scale: 0.25 }}
+                animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1 }}
                 className='story-orb' onClick={clickHandle}>
                 <img src={storyUrl} alt="" />

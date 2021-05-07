@@ -19,6 +19,7 @@ const Phone = (props) => {
 
             <Yscroll>
                 <Story />
+
                 <Post />
                 <Post />
                 <Post />
@@ -26,6 +27,18 @@ const Phone = (props) => {
                 <Post />
                 <Post />
                 <Post />
+                <Post />
+                <Post />
+                <Post />
+                <Post />
+                <Post />
+                <Post />
+                <Post />
+
+
+
+
+
             </Yscroll>
 
 
