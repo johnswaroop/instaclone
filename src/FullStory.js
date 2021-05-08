@@ -1,73 +1,36 @@
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
+import Storyimg from './Storyimg'
+import useChangeStory from "./hooks/useChangeStory";
+
 
 const FullStory = (props) => {
 
-    console.log(props.storybook);
-    console.log(props.src);
+    // console.log(props.storybook);
+    //  console.log(props.src);
     let timer;
 
-    const [currentIndex, setCurrentIndex] = useState(props.storybook.indexOf(props.src));
-
-
-
-
-    useEffect(() => {
-
-
-
-        timer = setInterval(() => {
-
-
-
-
-            setCurrentIndex((index) => {
-
-                if (index < props.storybook.length - 1) {
-
-
-                    return index + 1;
-
-                }
-                else {
-                    clearInterval(timer);
-                    console.log("--------------end-----------------" + index);
-
-                    return index
-                }
-
-            })
-
-
-
-        }, 3000)
-
-
-
-
-
-
-    }, []);
+    let [img, closeStory] = useChangeStory(props.storybook, props.src);
 
 
 
 
     return (
-        <motion.div className='story-fullscreen' initial={{ opacity: 0, scale: 0.7 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }}  >
-            <div className="progress-body">
 
-                <motion.div initial={`${currentIndex * 0}%`} animate={{ width: `${currentIndex * 100}%` }} transition={{ type: "spring", duration: 3 }}
+        <div className='story-fullscreen'   >
+            <div className="progress-body" >
+
+                <motion.div key={img} initial={{ width: '0%' }} animate={{ width: '100%' }} transition={{ duration: 3 }}
                     className='progress-inner'></motion.div>
             </div>
-            <img src={props.storybook[currentIndex]} alt="" />
 
-            <div className='cancel' onClick={() => {
-                clearInterval(timer);
-                props.toggle();
-            }}>
+            <Storyimg src={img} />
+
+            <div className='cancel' onClick={() => { closeStory(); props.toggle(); }}>
                 <h1>X</h1>
             </div>
-        </motion.div >
+
+        </div >
     )
 }
 

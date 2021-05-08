@@ -261,7 +261,7 @@ body {
     opacity: 0;
     object-fit: contain;
 }
-
+////////////////////////////////// story screen ////////////
 .story-fullscreen {
     position: absolute;
 
@@ -277,11 +277,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
 
-    img {
-        object-fit: contain;
-        max-width: 100%;
-    }
+#story-img {
+    object-fit: contain;
+    max-width: 100%;
 }
 
 .progress-body {
